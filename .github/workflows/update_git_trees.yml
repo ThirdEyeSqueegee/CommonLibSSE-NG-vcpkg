@@ -1,8 +1,8 @@
-name: Update git-tree
+name: Update git-trees
 
 on:
   workflow_run:
-    workflows: Update vcpkg port
+    workflows: Update vcpkg ports
     types: completed
   workflow_dispatch:
 

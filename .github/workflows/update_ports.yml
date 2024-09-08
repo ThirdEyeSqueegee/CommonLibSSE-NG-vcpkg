@@ -1,4 +1,4 @@
-name: Update vcpkg port
+name: Update vcpkg ports
 
 on:
   schedule:
