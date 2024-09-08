@@ -3,6 +3,10 @@
     "commonlibsse-ng": {
       "baseline": "latest",
       "port-version": 0
+    },
+    "spdlog": {
+      "baseline": "1.14.1",
+      "port-version": 0
     }
   }
 }

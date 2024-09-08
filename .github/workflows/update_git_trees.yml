@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: 3.12
 
-      - run: python update_git_tree.py
+      - run: python update_git_trees.py
 
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9
