@@ -9,32 +9,57 @@ spdlog_repo = "https://github.com/gabime/spdlog"
 vcpkg_repo = "https://github.com/microsoft/vcpkg"
 
 clib_ref = (
-    run(["git", "ls-remote", clib_repo], capture_output=True).stdout.decode().split()[0]
+    run(["git", "ls-remote", clib_repo], capture_output=True)
+    .stdout.decode()
+    .splitlines()[0]
+    .split()[0]
 )
 
-spdlog_ref = (
+spdlog_ref, spdlog_tag = (
     run(
         ["git", "ls-remote", "--tags", "--sort=-v:refname", spdlog_repo],
         capture_output=True,
     )
     .stdout.decode()
-    .split()[0]
+    .splitlines()[0]
+    .split()
 )
+
+spdlog_tag = spdlog_tag.replace("refs/tags/v", "")
 
 vcpkg_ref = (
     run(["git", "ls-remote", vcpkg_repo, "refs/heads/master"], capture_output=True)
     .stdout.decode()
+    .splitlines()[0]
     .split()[0]
 )
 
-# Update vcpkg.json
-with open("./ports/commonlibsse-ng/vcpkg.json", "r") as f:
+# Update baseline.json
+with open("./versions/baseline.json", "r") as f:
+    baseline = load(f)
+
+baseline["default"]["spdlog"]["baseline"] = spdlog_tag
+
+with open("./versions/baseline.json", "w") as f:
+    dump(baseline, f, indent=2)
+
+# Update spdlog/vcpkg.json
+with open("./ports/spdlog/vcpkg.json", "r") as f:
     vcpkg_json = load(f)
 
-vcpkg_json["builtin-baseline"] = vcpkg_ref
+vcpkg_json["version-semver"] = spdlog_tag
 
-with open("./ports/commonlibsse-ng/vcpkg.json", "w") as f:
+with open("./ports/spdlog/vcpkg.json", "w") as f:
     dump(vcpkg_json, f, indent=2)
+
+# Update versions/s-/spdlog.json
+with open("./versions/s-/spdlog.json", "r") as f:
+    spdlog_json = load(f)
+
+spdlog_json["versions"][0]["version-semver"] = spdlog_tag
+
+with open("./versions/s-/spdlog.json", "w") as f:
+    dump(spdlog_json, f, indent=2)
 
 # Update CommonLibSSE-NG portfile
 clib_archive, _ = urlretrieve(f"{clib_repo}/archive/{clib_ref}.tar.gz")
