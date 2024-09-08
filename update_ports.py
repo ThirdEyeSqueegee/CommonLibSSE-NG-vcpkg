@@ -83,7 +83,7 @@ with open(spdlog_archive, "rb") as f:
 
 with open("./ports/spdlog/portfile.cmake", "r") as f:
     portfile = f.readlines()
-    portfile[3] = sub(r"(REF).*", f"REF {spdlog_ref}", portfile[3])
+    portfile[3] = sub(r"(REF).*", f"REF {spdlog_tag}", portfile[3])
     portfile[4] = sub(r"(SHA512).*", f"SHA512 {spdlog_sha}", portfile[4])
 
 with open("./ports/spdlog/portfile.cmake", "w") as f:
