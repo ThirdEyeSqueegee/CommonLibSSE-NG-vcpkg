@@ -1,0 +1,8 @@
+{
+  "default": {
+    "commonlibsse-ng": {
+      "baseline": "latest",
+      "port-version": 0
+    }
+  }
+}
