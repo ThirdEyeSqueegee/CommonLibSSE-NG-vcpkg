@@ -4,7 +4,7 @@
   "version-string": "latest",
   "description": "CommonLibVR ng branch",
   "homepage": "https://github.com/alandtse/CommonLibVR/tree/ng",
-  "builtin-baseline": "0",
+  "builtin-baseline": "68d349964cb4e8da561fd849d9491e6ba11c5681",
   "dependencies": [
     "fmt",
     "spdlog",
