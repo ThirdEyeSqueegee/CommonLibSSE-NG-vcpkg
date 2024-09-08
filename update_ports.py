@@ -76,7 +76,7 @@ with open("./ports/commonlibsse-ng/portfile.cmake", "w") as f:
     f.writelines(portfile)
 
 # Update spdlog portfile
-spdlog_archive, _ = urlretrieve(f"{spdlog_repo}/archive/{spdlog_ref}.tar.gz")
+spdlog_archive, _ = urlretrieve(f"{spdlog_repo}/archive/refs/tags/v{spdlog_tag}.tar.gz")
 
 with open(spdlog_archive, "rb") as f:
     spdlog_sha = sha512(f.read()).hexdigest()
