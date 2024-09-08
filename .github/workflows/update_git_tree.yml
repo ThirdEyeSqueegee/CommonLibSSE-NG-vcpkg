@@ -1,8 +1,8 @@
-name: Update git-trees
+name: Update git-tree
 
 on:
   workflow_run:
-    workflows: Update vcpkg ports
+    workflows: Update vcpkg port
     types: completed
   workflow_dispatch:
 
@@ -25,17 +25,10 @@ jobs:
         with:
           python-version: 3.12
 
-      - run: python update_git_trees.py
+      - run: python update_git_tree.py
 
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
-          message: "ci: update git-trees"
-
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ secrets.REPOSITORY_DISPATCH_TOKEN }}
-          repository: ThirdEyeSqueegee/CommonLibSSE-NG
-          event-type: update-baselines-event
+          message: "ci: update git-tree"

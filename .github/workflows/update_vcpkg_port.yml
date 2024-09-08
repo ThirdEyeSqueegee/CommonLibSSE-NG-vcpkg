@@ -1,4 +1,4 @@
-name: Update vcpkg ports
+name: Update vcpkg port
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
 permissions: write-all
 
 concurrency:
-  group: update-port
+  group: update-vcpkg-port
   cancel-in-progress: true
 
 jobs:
@@ -24,10 +24,10 @@ jobs:
         with:
           python-version: 3.12
 
-      - run: python update_ports.py
+      - run: python update_vcpkg_port.py
 
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
-          message: "ci: update vcpkg ports"
+          message: "ci: update vcpkg port"

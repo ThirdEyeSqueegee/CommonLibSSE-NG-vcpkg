@@ -5,7 +5,6 @@
   "description": "CommonLibVR ng branch",
   "homepage": "https://github.com/alandtse/CommonLibVR/tree/ng",
   "dependencies": [
-    "fmt",
     "spdlog",
     "rapidcsv",
     "directxtk",
@@ -17,12 +16,6 @@
     {
       "name": "vcpkg-cmake-config",
       "host": true
-    }
-  ],
-  "overrides": [
-    {
-      "name": "fmt",
-      "version": "10.2.1"
     }
   ],
   "features": {
