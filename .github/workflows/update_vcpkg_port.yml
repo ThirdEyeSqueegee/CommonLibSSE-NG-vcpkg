@@ -1,8 +1,6 @@
 name: Update vcpkg port
 
 on:
-  schedule:
-    - cron: 0 */6 * * *
   repository_dispatch:
     types: [update-clib-port-event]
   workflow_dispatch:
