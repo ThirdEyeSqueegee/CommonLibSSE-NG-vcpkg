@@ -35,7 +35,7 @@ file(
   DESTINATION ${CURRENT_PACKAGES_DIR}/share/CommonLibSSE
 )
 file(
-  INSTALL ${SOURCE_PATH}/cmake/CommonLibSSE.cmake
+  INSTALL ${SOURCE_PATH}/cmake/CommonLibSSE.cmake ${SOURCE_PATH}/cmake/FindOpenVR.cmake
   DESTINATION ${CURRENT_PACKAGES_DIR}/share/CommonLibSSE
 )
 
