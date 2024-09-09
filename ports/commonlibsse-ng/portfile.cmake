@@ -10,6 +10,8 @@ vcpkg_check_features(
   OUT_FEATURE_OPTIONS FEATURE_OPTIONS
   FEATURES
   xbyak SKSE_SUPPORT_XBYAK
+  INVERTED_FEATURES
+  flatrim ENABLE_SKYRIM_VR
 )
 
 vcpkg_cmake_configure(
