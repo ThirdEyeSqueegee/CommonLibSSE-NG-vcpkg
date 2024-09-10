@@ -1,0 +1,9 @@
+The package CommonLibSSE provides CMake targets:
+
+    find_package(CommonLibSSE CONFIG REQUIRED)
+
+    add_commonlibsse_plugin(
+        ${PROJECT_NAME}
+        AUTHOR <your name>
+        SOURCES <your source files>
+    )
