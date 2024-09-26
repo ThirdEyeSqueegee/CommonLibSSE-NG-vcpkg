@@ -18,10 +18,11 @@ clib_archive, _ = urlretrieve(f"{clib_repo}/archive/{clib_ref}.tar.gz")
 with open(clib_archive, "rb") as f:
     clib_sha = sha512(f.read()).hexdigest()
 
-with open("./ports/commonlibsse-ng/portfile.cmake", "r") as f:
+with open("./ports/commonlibsse-ng/portfile.cmake") as f:
     portfile = f.readlines()
-    portfile[3] = sub(r"(REF).*", f"REF {clib_ref}", portfile[3])
-    portfile[4] = sub(r"(SHA512).*", f"SHA512 {clib_sha}", portfile[4])
 
-with open("./ports/commonlibsse-ng/portfile.cmake", "w") as f:
+portfile[3] = sub(r"(REF).*", f"REF {clib_ref}", portfile[3])
+portfile[4] = sub(r"(SHA512).*", f"SHA512 {clib_sha}", portfile[4])
+
+with open("./ports/commonlibsse-ng/portfile.cmake", "w", newline="\r\n") as f:
     f.writelines(portfile)
