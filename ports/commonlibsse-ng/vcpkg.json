@@ -6,7 +6,6 @@
   "homepage": "https://github.com/alandtse/CommonLibVR/tree/ng",
   "dependencies": [
     "spdlog",
-    "rapidcsv",
     "directxtk",
     {
       "name": "vcpkg-cmake",
@@ -21,7 +20,7 @@
   "features": {
     "all": {
       "description": "Build for SE, AE, and VR",
-      "dependencies": ["openvr"]
+      "dependencies": ["openvr", "rapidcsv"]
     },
     "flatrim": {
       "description": "Build only for SE and AE"
